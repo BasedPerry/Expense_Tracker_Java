@@ -1,27 +1,7 @@
-// Provides a resizable array implementation, which is part of the Java Collections Framework
 import java.util.ArrayList;
-// Provides a data structure to store key-value pairs, part of the Java Collections Framework.
 import java.util.HashMap;
-// Defines the interface for maps (key-value pairs).
 import java.util.Map;
-// Provides methods to read input from the user or a file.
 import java.util.Scanner;
-
-// Class representing an individual expense with date, description, category, and amount
-class Expense {
-    String date;
-    String description;
-    String category;
-    double amount;
-
-    // Constructor to initialize the expense attributes
-    Expense(String date, String description, String category, double amount) {
-        this.date = date;
-        this.description = description;
-        this.category = category;
-        this.amount = amount;
-    }
-}
 
 // Main class for the Expense Tracker application
 public class ExpenseTracker {
@@ -112,9 +92,9 @@ public class ExpenseTracker {
             return;
         }
         System.out.println("Expenses:");
-        // Print each expense in the list
+        // Print each expense in the list using getters
         for (Expense expense : expenses) {
-            System.out.println(expense.date + " - " + expense.description + " - " + expense.category + " - " + expense.amount);
+            System.out.println(expense.getDate() + " - " + expense.getDescription() + " - " + expense.getCategory() + " - $" + expense.getAmount());
         }
     }
 
@@ -125,9 +105,9 @@ public class ExpenseTracker {
             return;
         }
         double total = 0;
-        // Sum up the amount of each expense
+        // Sum up the amount of each expense using getters
         for (Expense expense : expenses) {
-            total += expense.amount;
+            total += expense.getAmount();
         }
         System.out.println("Total expense: $" + total); // Display the total amount
     }
@@ -138,10 +118,10 @@ public class ExpenseTracker {
         String category = scanner.nextLine(); // Read category input
         int count = 0;
         System.out.println("Expenses in " + category + ":");
-        // Print expenses that match the given category
+        // Print expenses that match the given category using getters
         for (Expense expense : expenses) {
-            if (expense.category.equalsIgnoreCase(category)) {
-                System.out.println(expense.date + " - " + expense.description + " - " + expense.category + " - " + expense.amount);
+            if (expense.getCategory().equalsIgnoreCase(category)) {
+                System.out.println(expense.getDate() + " - " + expense.getDescription() + " - " + expense.getCategory() + " - $" + expense.getAmount());
                 count++;
             }
         }
@@ -159,8 +139,8 @@ public class ExpenseTracker {
         Map<String, Double> monthlyTotals = new HashMap<>(); // Map to store monthly totals
         // Calculate monthly totals for each expense
         for (Expense expense : expenses) {
-            String month = expense.date.substring(3, 10); // Extract month and year (mm/yyyy)
-            monthlyTotals.put(month, monthlyTotals.getOrDefault(month, 0.0) + expense.amount);
+            String month = expense.getDate().substring(3, 10); // Extract month and year (mm/yyyy) using getter
+            monthlyTotals.put(month, monthlyTotals.getOrDefault(month, 0.0) + expense.getAmount());
         }
         System.out.println("Monthly Summary:");
         // Print the monthly totals
