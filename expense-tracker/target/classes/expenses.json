@@ -1,0 +1,16 @@
+[ {
+  "date" : "29/12/2024",
+  "description" : "M4 Mac Mini",
+  "category" : "Computer",
+  "amount" : 500.0
+}, {
+  "date" : "29/12/2024",
+  "description" : "SSD Enclosure",
+  "category" : "Computer",
+  "amount" : 69.95
+}, {
+  "date" : "29/12/2024",
+  "description" : "Owally Wally Bottle",
+  "category" : "Health",
+  "amount" : 32.99
+} ]
